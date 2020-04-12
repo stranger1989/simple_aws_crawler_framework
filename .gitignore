@@ -1,0 +1,14 @@
+.scrapy
+__pycache__/
+
+.serverless
+node_modules/
+
+env/
+
+.DS_Store
+.idea/
+
+feed/
+
+venv/

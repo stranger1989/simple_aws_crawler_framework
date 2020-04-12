@@ -1,0 +1,33 @@
+service: simple-aws-crawler-framework
+
+package:
+  include:
+    - launcher.py
+    - simple_aws_crawler_framework/**
+    - scrapy.cfg
+  exclude:
+    - "./**"
+provider:
+  name: aws
+  runtime: python3.6
+  logRetentionInDays: 1
+  stage: dev
+  region: ap-northeast-1
+  timeout: 900
+  environment:
+    SELENIUM_LAYER_SERVICE: selenium-layer
+functions:
+  simple-aws-crawler-framework:
+    handler: launcher.scrape
+    layers:
+      - ${cf:${self:provider.environment.SELENIUM_LAYER_SERVICE}-${opt:stage, self:provider.stage}.SeleniumLayerExport}
+      - ${cf:${self:provider.environment.SELENIUM_LAYER_SERVICE}-${opt:stage, self:provider.stage}.ChromedriverLayerExport}
+    environment: ${file(./env/prod.yml)}
+#    events:
+#      - schedule: cron(00 22 ? * SUN-THU *)
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    slim: true # Omits tests, __pycache__, *.pyc etc from dependencies
+    fileName: requirements.txt
