@@ -4,8 +4,8 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
 
-class HeaderSpider(CrawlSpider):
-    name = "header_spider"
+class DefaultSpider(CrawlSpider):
+    name = "default_spider"
 
     start_urls = ["https://scrapy.org"]
     allowed_domains = ["scrapy.org"]

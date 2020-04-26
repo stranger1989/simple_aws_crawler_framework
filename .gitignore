@@ -12,3 +12,7 @@ env/
 feed/
 
 venv/
+
+simple_aws_crawler_framework/spiders/screenshot/
+simple_aws_crawler_framework/spiders/selenium_auth_spider.py
+simple_aws_crawler_framework/spiders/selenium_spider.py

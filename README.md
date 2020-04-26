@@ -42,10 +42,27 @@ sls remove -v --aws-profile { aws_profile }
 
 ## Local run
 
+### default run
+
 ```
 python launcher.py
 ```
-
 The result of crawling will be recorded under the `/feed` directory
 
+### other spider run
+
+you can indicate specific spider file via json format.
+
+```
+python launcher.py {\"spider_name\":\"selenium_spider\"}
+```
+
+## Example
+
+| spider_name | spider_explanation |
+|---|---|
+| default_spider | Fetch url and title from scrapy official web site |
+| crawling_pagination_spider | Fetch my blog post title and link |
+| selenium_screenshot_to_slack_spider | Access to google top page and save a screenshot. after that send it to slack channel|
+| selenium_auth_spider | now preparing |
 

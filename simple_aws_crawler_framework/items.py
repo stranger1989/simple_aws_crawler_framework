@@ -13,3 +13,24 @@ class SimpleAwsCrawlerFrameworkItem(scrapy.Item):
     header = scrapy.Field()
     url = scrapy.Field()
     pass
+
+
+class CrawlingPaginationItem(scrapy.Item):
+    # define the fields for your item here like:
+    title = scrapy.Field()
+    summary = scrapy.Field()
+    pass
+
+
+class Post(scrapy.Item):
+    # define the fields for your item here like:
+    url = scrapy.Field()
+    title = scrapy.Field()
+    pass
+
+
+# class History(scrapy.Item):
+#     # define the fields for your item here like:
+#     keyword = scrapy.Field()
+#     date = scrapy.Field()
+#     pass
